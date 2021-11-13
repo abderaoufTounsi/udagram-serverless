@@ -9,6 +9,7 @@
   "dependencies": {
     "source-map-support": "^0.5.10",
     "elasticsearch": "^15.4.1",
+    "jimp": "^0.6.4",
     "http-aws-es": "^6.0.0"
   },
   "devDependencies": {
