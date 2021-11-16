@@ -105,6 +105,9 @@ functions:
   Auth:
     handler: src/lambda/auth/authOAuthorizer.handler
 
+  RS256Auth:
+    handler: src/lambda/auth/rs256Auth0Authorizer.handler
+
   GetGroups: 
     handler: src/lambda/http/getGroups.handler
     events:
@@ -120,7 +123,7 @@ functions:
           method: post
           path: groups
           cors: true
-          authorizer: Auth
+          authorizer: RS256Auth
           reqValidatorName: RequestBodyValidator
           documentation:
             summary: Create a new group
@@ -135,13 +138,6 @@ functions:
           method: get
           path: groups/{groupId}/images
           cors: true
-          authorizer: Auth
-          reqValidatorName: RequestBodyValidator
-          documentation:
-            summary: Create a new image
-            description : Create a new image
-            requestModels:
-              'application/json': ImageRequest
 
   GetImage: 
     handler: src/lambda/http/getImage.handler
@@ -158,6 +154,13 @@ functions:
           method: post
           path: groups/{groupId}/images
           cors: true
+          authorizer: RS256Auth
+          reqValidatorName: RequestBodyValidator
+          documentation:
+            summary: Create a new image
+            description : Create a new image
+            requestModels:
+              'application/json': ImageRequest
 
   SendUploadNotifications:
     environment:
