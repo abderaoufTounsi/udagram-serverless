@@ -8,6 +8,8 @@ plugins:
   - serverless-webpack
   - serverless-reqvalidator-plugin
   - serverless-aws-documentation
+  - serverless-dynamodb-local
+  - serverless-offline
 
 provider:
   name: aws
@@ -85,6 +87,17 @@ custom:
     includeModules: true
   
   topicName: imagesTopic-${self:provider.stage}
+
+  serverless-off-line:
+    port: 3003
+
+  dynamodb:
+    stages:
+      - ${self:provider.stage}
+    start:
+      port: 8999
+      inMemory: true
+      migrate: true
 
   documentation: 
     api:

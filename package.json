@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "aws-xray-sdk": "^2.3.3",
     "elasticsearch": "^15.4.1",
     "http-aws-es": "^6.0.0",
     "jimp": "^0.6.4",
@@ -26,7 +27,9 @@
     "ts-loader": "^5.3.3",
     "typescript": "^3.2.4",
     "webpack": "^4.29.0",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "serverless-dynamodb-local": "^0.2.38",
+    "serverless-offline": "^4.10.6"
   },
   "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
   "license": "MIT"
