@@ -13,6 +13,9 @@ plugins:
   # - serverless-plugin-canary-deployments
   # - serverless-iam-roles-per-function
 
+package:
+  individually: true
+
 provider:
 
   tracing:
