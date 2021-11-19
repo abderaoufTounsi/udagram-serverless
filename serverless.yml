@@ -10,6 +10,8 @@ plugins:
   - serverless-aws-documentation
   - serverless-dynamodb-local
   - serverless-offline
+  # - serverless-plugin-canary-deployments
+  # - serverless-iam-roles-per-function
 
 provider:
   name: aws
@@ -30,6 +32,12 @@ provider:
     AUTH_0_SECRET_FIELD: Auth0Secret
 
   iamRoleStatements:
+    # - Effect: Allow
+    #   Action:
+    #     - codedeploy:*
+    #   Resource: 
+    #     - "*"
+
     - Effect: Allow
       Action:
         - dynamodb:Scan
@@ -143,6 +151,9 @@ functions:
             description : Create a new group
             requestModels:
               'application/json': GroupRequest
+    # deploymentSettings:
+    #   type: Linear10PercentEvery1Minute
+    #   alias: Live
 
   GetImages: 
     handler: src/lambda/http/getImages.handler
